@@ -1,28 +1,23 @@
-const project = (name, description, priority) => {
-    let items = [];
-    return { name, description, priority, items, 
-        add_item: function (item) {
-            this.items.push(item);
-        },
-        remove_item: function (item) {
-            let i = this.items.indexOf(item);
-            if (i > -1) {
-                this.items.splice(i, 1);
-            };
-        },
-    };
-};
+import project from "./project";
+import todo_item from "./todo_item";
+import display from "./display";
+import "./index.css";
 
-const todo_item = (name, description, priority) => {
-    let complete = false;
-    return { 
-        name, description, priority, complete, 
-        change_status: function () {
-            this.complete = !this.complete;
-        }
-    };
-};
+let project_list = [];
 
-let default_project = project("default project", "default desc", "medium");
-let default_item = todo_item("default name", "default desc", "high");
-default_project.add_item(test_item);
+function create_project(name, desc, priority) {
+    let temp_project = project(name, desc, priority);
+    project_list.push(temp_project);
+    return temp_project;
+}
+
+function create_todo_item(project, name, desc, priority) {
+    let temp_item = todo_item(name, desc, priority);
+    project.add_item(temp_item);
+    return temp_item;
+}
+
+let default_project = create_project("default project", "default desc", "high");
+create_todo_item(default_project, "default item", "default desc", "medium");
+
+display(project_list);
