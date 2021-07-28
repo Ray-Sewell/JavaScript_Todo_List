@@ -1,1 +1,1 @@
-console.log("Init");
+(()=>{let e={name:"test project",description:"test desc",priority:"medium",items:[],add_item:function(e){this.items.push(e)},remove_item:function(e){let t=this.items.indexOf(e);console.log(t),t>-1&&this.items.splice(t,1)}},t={name:"test name",description:"test desc",priority:"high",complete:!1,change_status:function(){this.complete=!this.complete}};console.log(e),e.add_item(t),console.log(e),e.remove_item(t),console.log(e)})();
