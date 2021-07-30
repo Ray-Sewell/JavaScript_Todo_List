@@ -16,3 +16,8 @@
     background-color: white;
     color: darkslategray;
 }
+.todo-item {
+    text-align: center;
+    padding: 5px;
+    color: white;
+}
