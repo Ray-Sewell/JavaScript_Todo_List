@@ -8,11 +8,25 @@ function display_item_list(project) {
         let item_description = document.createElement("h5");
         let item_complete = document.createElement("input");
         item.className = "todo-item";
-        item.style.background = get_item_priority_color(i);
         item_name.innerHTML = i.name;
         item_description.innerHTML = i.description;
         item_complete.type = "checkbox";
-        item_complete.checked = i.complete;
+        if (i.complete) {
+            item.style.background = "#303030";
+            item_complete.checked = true;
+        } else {
+            item.style.background = get_item_priority_color(i);
+            item_complete.checked = false;
+        }
+        item_complete.onchange = function() {
+            if (item_complete.checked) {
+                item.style.background = "#303030";
+                i.complete = true;
+            } else {
+                item.style.background = get_item_priority_color(i);
+                i.complete = false;
+            }
+        }
         item.appendChild(item_name);
         item.appendChild(item_description);
         item.appendChild(item_complete);
