@@ -16,7 +16,6 @@ create_todo_item(default_project, "default item", "default desc", "high");
 let default_project_2 = create_project("default project 2", "default desc", "low");
 create_todo_item(default_project_2, "default item 2", "default desc 2", "low");
 
-display_item_list();
 project_nav(project_list_helpers.get_project_list());
+display_item_list();
 item_form_helpers.create_item_form();
-item_form_helpers.show_create_item_form();

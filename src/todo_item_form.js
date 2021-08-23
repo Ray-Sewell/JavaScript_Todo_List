@@ -4,6 +4,7 @@ splash.id = "splash";
 
 import create_todo_item from "./create_todo_item";
 import current_project from "./current_project";
+import display_item_list from "./display_item_list";
 
 function create_item_form() {
     let form_container = document.createElement("div");
@@ -14,7 +15,7 @@ function create_item_form() {
     let name = document.createElement("input");
     let desc_label = document.createElement("label");
     let desc = document.createElement("input");
-    let submit = document.createElement("button");
+    let submit = document.createElement("div");
     form_container.id = "form_container";
     close.id = "close_form_button";
     close.innerHTML = "X";
@@ -29,9 +30,11 @@ function create_item_form() {
     desc.type = "text";
     name.id = "item-creation-desc";
     submit.id = "submit_form_button";
-    submit.innerHTML = "save";
+    submit.innerHTML = "create";
     submit.onclick = function() {
-       create_todo_item(current_project(), name.value, desc.value, "low")
+       create_todo_item(current_project(), name.value, desc.value, "low");
+       close_create_item_form();
+       display_item_list();
     }
     form_container.appendChild(close);
     form_container.appendChild(header);

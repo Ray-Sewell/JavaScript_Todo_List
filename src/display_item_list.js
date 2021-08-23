@@ -1,10 +1,18 @@
-import project_list_helpers from "./project_list";
+import item_form_helpers from"./todo_item_form";
+import current_project from "./current_project";
 
 const content = document.querySelector("#content");
 
 function display_item_list() {
-    let project = project_list_helpers.get_project_list()[content.dataset.index];
     content.innerHTML = "";
+    let project = current_project();
+    let show_create_item_form_button = document.createElement("div");
+    show_create_item_form_button.id = "show-create-item-form-button";
+    show_create_item_form_button.innerHTML = "+";
+    show_create_item_form_button.onclick = function() {
+        item_form_helpers.show_create_item_form();
+    }
+    content.appendChild(show_create_item_form_button);
     project.items.forEach(i => {
         let item = document.createElement("div");
         let item_name = document.createElement("h2");
