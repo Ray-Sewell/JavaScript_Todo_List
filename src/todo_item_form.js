@@ -2,6 +2,9 @@ const splash = document.createElement("div");
 const content = document.querySelector("#content");
 splash.id = "splash";
 
+import create_todo_item from "./create_todo_item";
+import current_project from "./current_project";
+
 function create_item_form() {
     let form_container = document.createElement("div");
     let close = document.createElement("button");
@@ -28,7 +31,7 @@ function create_item_form() {
     submit.id = "submit_form_button";
     submit.innerHTML = "save";
     submit.onclick = function() {
-       
+       create_todo_item(current_project(), name.value, desc.value, "low")
     }
     form_container.appendChild(close);
     form_container.appendChild(header);

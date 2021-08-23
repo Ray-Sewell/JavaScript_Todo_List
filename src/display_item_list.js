@@ -1,6 +1,9 @@
+import project_list_helpers from "./project_list";
+
 const content = document.querySelector("#content");
 
-function display_item_list(project) {
+function display_item_list() {
+    let project = project_list_helpers.get_project_list()[content.dataset.index];
     content.innerHTML = "";
     project.items.forEach(i => {
         let item = document.createElement("div");
