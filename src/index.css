@@ -12,7 +12,7 @@
     padding: 5px;
     cursor: pointer;
 }
-.project-nav-button:hover {
+.project-nav-button:hover, #add-project-button:hover {
     background-color: white;
     color: darkslategray;
 }
@@ -52,18 +52,23 @@ form {
 button {
     cursor: pointer;
 }
+#add-project-button {
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    padding: 0 .3em 0 .3em;
+}
 #show-create-item-form-button {
-    padding: .2em;
     font-size: 2em;
     font-weight: 700;
     background-color: rgb(92, 173, 92);
     color: white;
     cursor: pointer;
-    margin: .5em;
+    margin: .3em;
     border-radius: 5px;
     text-align: center;
-    width: 200px;
-    min-width: 100px;
+    width: 100px;
 }
 #submit_form_button {
     cursor: pointer;
